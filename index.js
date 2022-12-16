@@ -50,4 +50,10 @@ app.get("/event/:id", async (req, res) => {
     res.render("event", {appo: appointment});
 })
 
+app.post("/finish", async (req, res) => {
+    let id = req.body.id;
+    let result = await appointmentService.Finish(id);
+    res.redirect("/");
+})
+
 app.listen(PORT, () => {console.log("Server Running on Port", PORT)});
