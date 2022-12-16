@@ -40,8 +40,8 @@ app.post("/create", async (req, res) => {
 })
 
 app.get("/getcalendar", async (req, res) => {
-    let consultas = await appointmentService.GetAll(false)
-        res.json(consultas);
+    let appointments = await appointmentService.GetAll(false)
+        res.json(appointments);
 })
 
 app.listen(PORT, () => {console.log("Server Running on Port", PORT)});
