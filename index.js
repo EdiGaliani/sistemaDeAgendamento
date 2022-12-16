@@ -37,6 +37,11 @@ app.post("/create", async (req, res) => {
     }else{
         res.send("Ocorreu um erro");
     }
-});
+})
+
+app.get("/getcalendar", async (req, res) => {
+    let consultas = await appointmentService.GetAll(false)
+        res.json(consultas);
+})
 
 app.listen(PORT, () => {console.log("Server Running on Port", PORT)});
