@@ -56,4 +56,9 @@ app.post("/finish", async (req, res) => {
     res.redirect("/");
 })
 
+app.get("/list", async (req, res) => {
+    let appos = await appointmentService.GetAll(true);
+    res.render("list", {appos});
+})
+
 app.listen(PORT, () => {console.log("Server Running on Port", PORT)});
