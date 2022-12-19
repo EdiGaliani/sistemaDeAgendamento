@@ -13,7 +13,8 @@ class AppointmentService {
             cpf,
             date,
             time,
-            finished: false
+            finished: false,
+            notified: false
         });
         try {
             await newAppo.save();
@@ -63,6 +64,10 @@ class AppointmentService {
             console.log(error)
             return [];
         }    
+    }
+    async SendNotification() {
+        let appos = await this.GetAll(false);
+        console.log(appos);
     }
 }
 

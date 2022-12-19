@@ -66,4 +66,9 @@ app.get("/searchresult", async (req, res) => {
     res.render("list", {appos});
 })
 
+let pollTime = 5000;
+setInterval( async () => {
+    await appointmentService.SendNotification();
+}, pollTime)
+
 app.listen(PORT, () => {console.log("Server Running on Port", PORT)});
