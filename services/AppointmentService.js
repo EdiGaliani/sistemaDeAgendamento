@@ -67,7 +67,16 @@ class AppointmentService {
     }
     async SendNotification() {
         let appos = await this.GetAll(false);
-        console.log(appos);
+        appos.forEach(app => {
+            let date = app.start.getTime();
+            let hour = 1000 * 60 * 60;
+            let gap = date-Date.now();
+
+            if(gap <= hour) {
+                
+            }
+        })
+        
     }
 }
 
